@@ -19,6 +19,12 @@ CREATE TABLE Item
     price FLOAT(24)
 );
 
+CREATE TABLE Order_Date
+(
+    orderId INT PRIMARY KEY,
+    date_ DATE
+);
+
 CREATE TABLE Order_T 
 (
     orderId INT NOT NULL,
@@ -28,15 +34,7 @@ CREATE TABLE Order_T
     
     PRIMARY KEY (orderId, customerId, itemId),
     FOREIGN KEY (customerId) REFERENCES Customer(customerId),
-    FOREIGN KEY (itemId) REFERENCES Item(itemId)    
-);
-
-CREATE TABLE Order_Date
-(
-    orderId INT PRIMARY KEY,
-    date_ DATE,
-    
-    FOREIGN KEY (orderId) REFERENCES Order_T(orderId)
+    FOREIGN KEY (itemId) REFERENCES Item(itemId)
 );
 
 -- Attributes in the table are not in any transitive relationship, 
